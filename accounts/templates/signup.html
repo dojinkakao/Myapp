@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body class="main-bg">
+	<div class="login-container text-c animated flipInX">
+		<div>
+				<h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+		</div>
+			<h3 class="text-whitesmoke">Hotel Meet</h3>
+			<p class="text-whitesmoke">Sign up</p>
+		<div class="container-content">
+			<form class="margin-t" method="post">
+				{% csrf_token %}
+				{% for field in form %}
+				<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+				<div class="form-group">
+						<input type="{{ field.widget.input_type }}" 
+										id="{{ field.id_for_label }}"
+										name="{{ field.name }}"
+										class="form-control"
+										placeholder="{{ field.name }}"
+										{% if field.required %}required{% endif %}>
+				</div>
+				{% endfor %}
+				<button type="submit" class="form-button button-l margin-b">会員登録</button>
+				{% if form.errors %}
+				<p style="color: red">ユーザー名とパスワードが一致しません。</p>
+				{% endif %}
+				<p class="text-whitesmoke text-center"><small>アカウントをお持ちの方はこちら</small></p>
+				<a class="text-darkyellow" href="#"><small>ログイン</small></a>
+			</form>
+			<p class="margin-t text-whitesmoke"><small> Hotel Meet &copy; 2023</small> </p>
+		</div>
+	</div>
+</body>
+{% endblock %}

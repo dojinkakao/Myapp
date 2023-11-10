@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body class="main-bg">
+	<div class="login-container text-c animated flipInX">
+		<div>
+				<h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+		</div>
+				<h3 class="text-whitesmoke">Hotel Meet</h3>
+				<p class="text-whitesmoke">Log in</p>
+		<div class="container-content">
+				<form class="margin-t" method="post">
+					{% csrf_token %}
+					<div class="form-group">
+							<input type="text" 
+											id="id_username"
+											name="username"
+											autocapitalize="none"
+											autocomplete="username"
+											class="form-control"
+											placeholder="Username"
+											required autofocus>
+					</div>
+					<div class="form-group">
+							<input type="password"
+										 name="password"
+										 id="id_password"
+										 class="form-control"
+										 autocomplete="current-password"
+										 placeholder="パスワード"
+										 required autofocus>
+					</div>
+					<button type="submit" class="form-button button-l margin-b">ログイン</button>
+					{% if form.errors %}
+        	<p style="color: red">ユーザー名とパスワードが一致しません。</p>
+      		{% endif %}
+					<a class="text-darkyellow" href="#"><small>パスワードをお忘れですか？</small></a>
+					<p class="text-whitesmoke text-center"><small>アカウントをお持ちではない方</small></p>
+					<a class="text-darkyellow" href="#"><small>会員登録</small></a>
+				</form>
+				<p class="margin-t text-whitesmoke"><small> Hotel Meet &copy; 2023</small> </p>
+		</div>
+	</div>
+</body>
+{% endblock %}
