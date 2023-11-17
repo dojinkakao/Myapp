@@ -9,8 +9,5 @@ class IndexView(TemplateView):
   # 1ページに表示するレコード件数を設定
   paginate_by = 4
 
-class LoginView(TemplateView):
-  template_name = 'login.html'
-
 class ContactView(TemplateView):
   template_name = 'contact.html'
