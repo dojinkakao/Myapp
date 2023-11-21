@@ -24,12 +24,10 @@
 										{% if field.required %}required{% endif %}>
 				</div>
 				{% endfor %}
-				<button type="submit" class="form-button button-l margin-b">会員登録</button>
-				{% if form.errors %}
-				<p style="color: red">ユーザー名とパスワードが一致しません。</p>
-				{% endif %}
+				<button type="submit" class="form-button button-l margin-b" value='Sign up'>会員登録</button>
+				<input type="hidden" name="next" value="{% url 'mypage' %}">
 				<p class="text-whitesmoke text-center"><small>アカウントをお持ちの方はこちら</small></p>
-				<a class="text-darkyellow" href="#"><small>ログイン</small></a>
+				<a class="text-darkyellow" href="{% url 'accounts:login' %}"><small>ログイン</small></a>
 			</form>
 			<p class="margin-t text-whitesmoke"><small> Hotel Meet &copy; 2023</small> </p>
 		</div>
